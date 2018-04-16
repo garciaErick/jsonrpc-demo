@@ -1,10 +1,10 @@
 import json
 
-class node:
-    def __init__(self, name, children = []):
+class Node:
+    def __init__(self, name, val, children = []):
         self.name = name
         self.children = children
-        self.val = 0
+        self.val = val
 
     def show(self, level=0):
         print "%s%s val=%d:" % (level*"  ", self.name, self.val)
@@ -20,8 +20,8 @@ def json_decode_graph(json_graph):
     children = []
     for child in json_graph["children"]:
         json_decode_graph(child)
-        children.append(node(child["name"]))
-    return node(json_graph["name"], children)
+        children.append(Node(child["name"], child["val"]))
+    return Node(json_graph["name"], json_graph["val"], children)
 
 def json_encode_graph(graph):
     children = []

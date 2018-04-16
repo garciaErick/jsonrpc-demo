@@ -2,7 +2,6 @@
 # https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart
 
 import socket
-import node
 import json
 from node import *
 from bsonrpc import JSONRpc

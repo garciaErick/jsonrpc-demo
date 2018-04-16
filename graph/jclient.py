@@ -4,9 +4,9 @@ from node import *
 import json
 from collections import namedtuple
 
-leaf1 = node("leaf1")
-leaf2 = node("leaf2")
-graph = node("root", [leaf1, leaf1, leaf2])
+leaf1 = Node("leaf1",0)
+leaf2 = Node("leaf2",0)
+graph = Node("root", 0,[leaf1, leaf1, leaf2])
 
 # Cut-the-corners TCP Client:
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,6 +16,13 @@ server = rpc.get_peer_proxy()
 
 # Execute in server:
 json_encoded_graph = server.increment(json_encode_graph(graph))
+
+print("")
+print("From Client:")
+print("Printing graph received from server")
+graph = json_decode_graph(json.loads(json_encoded_graph))
+graph.show()
+
 rpc.close() # Closes the socket 's' also
 
 
