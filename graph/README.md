@@ -1,5 +1,8 @@
-This directory contains the minimal bsonrpc demos from 
-https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart 
+# nets-tcp-proxy
 
-In case you don’t understand python’s “@” decorator syntax, see
-https://www.python-course.eu/python3_decorators.php
+This repo contains a demo of jsonrpc sending a graph back and forth a client and a server. It explains the difference of taking in account references and not taking them into account as explained in the image bellow:
+![Memory address comparison](memory_comparison.png "Memory address comparison")
+
+
+## How to run
+To run this demo just execute the ./demo.sh
