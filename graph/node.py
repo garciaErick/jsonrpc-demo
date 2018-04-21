@@ -46,7 +46,6 @@ def add_missing_instances_by_reference(graph_with_references, root):
         for id, child in graph_with_references.children.items():
             if isinstance(child, Node): 
                 add_missing_instances_by_reference(child, root)
-            print(id + " => " + str(child))
             if not isinstance(child, Node):
                 node_reference = find_node_by_id(root, child)
                 graph_with_references.children[id] = node_reference
@@ -68,10 +67,7 @@ def remove_keys(graph_with_ids):
         for child in graph_with_ids.children.values():
             remove_keys(child)
             children.append(child)
-        print("printing children")
-        print(children)
         graph_with_ids.children = children
-        print(graph_with_ids.children)
         return graph_with_ids
 
 def json_encode_graph(graph):

@@ -13,6 +13,7 @@ class ServerServices(object):
 
 	@request
 	def increment(self, json_encoded_graph):
+		print("")
 		print("From Server:")
 		print("Graph before increment:")
 		graph = json_decode_graph(json.loads(json_encoded_graph))
@@ -23,6 +24,20 @@ class ServerServices(object):
 		print("Graph after increment:")
 		graph.show()
 		return json_encode_graph(graph)
+
+	@request
+	def incrementByReference(self, json_encoded_graph):
+		print("")
+		print("From Server:")
+		print("Graph before increment:")
+		graph = json_decode_graph_with_references(json.loads(json_encoded_graph))
+		graph.show()
+
+		increment(graph)
+		print("")
+		print("Graph after increment:")
+		graph.show()
+		return json_encode_graph_by_reference(graph)
 
 # Quick-and-dirty TCP Server:
 ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
