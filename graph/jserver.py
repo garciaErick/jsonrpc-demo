@@ -2,10 +2,10 @@
 # https://github.com/seprich/py-bson-rpc/blob/master/README.md#quickstart
 
 import socket
-import json
-from node import *
+import node
 from bsonrpc import JSONRpc
 from bsonrpc import request, service_class
+from json_services import *
 
 # Class providing functions for the client to use:
 @service_class

@@ -1,8 +1,7 @@
 import socket
+import node
 from bsonrpc import JSONRpc
-from node import *
-import json
-from collections import namedtuple
+from json_services import *
 
 def print_graph_addresses(root):
 	print(root.name + " " + hex(id(root)))
